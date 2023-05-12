@@ -17,9 +17,12 @@ def inf_sum(x):
     summa = 1.0
     n = 1
     temp = 0
+    f = 1
     while abs(summa - temp) > eps:
         temp = summa
-        summa += x ** (2 * n + 1) / math.factorial(2 * n + 1)
+        if n > 0:
+            f *= (2 * n) * (2 * n + 1)
+        summa += x ** (2 * n + 1) / f
         n += 1
 
     print(f"The sum is: {summa}")
